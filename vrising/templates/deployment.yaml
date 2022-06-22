@@ -2,8 +2,11 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: vrising
+  namespace: game-servers
 spec:
   replicas: 1
+  strategy:
+    type: "Recreate"
   selector:
     matchLabels:
       app: vrising
@@ -18,30 +21,29 @@ spec:
           imagePullPolicy: Always
           env:
             - name: VR_NAME
-              value: 'Ebon Garden'
+              value: "Ebon Garden"
             - name: VR_DESCRIPTION
-              value: 'Ebon Garden is a PvE server open to all levels of play.'
+              value: "Ebon Garden is a PvE server open to all levels of play."
             - name: VR_GAME_PORT
-              value: '9876'
+              value: "9876"
             - name: VR_QUERY_PORT
-              value: '9877'
+              value: "9877"
             - name: VR_MAX_USERS
-              value: 40
+              value: "40"
             - name: VR_MAX_ADMINS
-              value: 4
+              value: "4"
             - name: VR_FPS
-              value: 60
+              value: "60"
             - name: VR_SECURE
-              value: true
+              value: "true"
             - name: VR_LIST_ON_MASTER_SERVER
-              value: false
+              value: "false"
             - name: VR_SAVE_NAME
-              value: 'EbonGarden'
+              value: "EbonGarden"
             - name: VR_SAVE_COUNT
-              value: 20
+              value: "20"
             - name: VR_SAVE_INTERVAL
-              value: 120
-            
+              value: "120"
           ports:
             - name: game
               containerPort: 9876

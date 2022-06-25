@@ -9,10 +9,12 @@ spec:
   ports:
   - name: vrising-game
     protocol: UDP
+    nodePort: 30000
     port: 9876
     targetPort: game
   - name: vrising-query
     protocol: UDP
+    nodePort: 30001
     port: 9877
     targetPort: query
-  type: LoadBalancer
+  type: NodePort

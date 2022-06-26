@@ -68,8 +68,15 @@ spec:
           volumeMounts:
             - name: home-volume
               mountPath: /home/ips-hosting
+            - name: game-settings
+              mountPath: /home/ips-hosting/VRisingDedicatedServer/VRisingServer_Data/StreamingAssets/Settings
       volumes:
         - name: home-volume
           hostPath:
             path: /mnt/raid/vrising
             type: DirectoryOrCreate
+        - name: game-settings
+          configMap:
+            name: vrising-game-settings
+          
+          

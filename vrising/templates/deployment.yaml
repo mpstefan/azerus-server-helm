@@ -60,10 +60,10 @@ spec:
               memory: "4Gi"
               cpu: "4"
           volumeMounts:
-          - name: homeVolume
+          - name: home-volume
             mountPath: /home/ips-hosting
       volumes:
-        - name: homeVolume
+        - name: home-volume
           hostPath:
             path: /mnt/raid
             type: Directory

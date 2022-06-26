@@ -63,6 +63,7 @@ spec:
               mountPath: /home/ips-hosting
             - name: game-settings
               mountPath: /home/ips-hosting/VRisingDedicatedServer/VRisingServer_Data/StreamingAssets/Settings
+              subPath: ServerGameSettings.json
       initContainers:
         - name: mod-home-owner
           image: alpine:3

@@ -69,7 +69,7 @@ spec:
             - name: home-volume
               mountPath: /home/ips-hosting
             - name: game-settings
-              mountPath: /home/ips-hosting
+              mountPath: /home/ips-hosting/ServerGameSettings.json
       volumes:
         - name: home-volume
           hostPath:

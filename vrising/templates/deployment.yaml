@@ -62,7 +62,7 @@ spec:
             - name: home-volume
               mountPath: /home/ips-hosting
             - name: game-settings
-              mountPath: /home/ips-hosting/VRisingDedicatedServer/VRisingServer_Data/StreamingAssets/Settings
+              mountPath: /home/ips-hosting/VRisingDedicatedServer/VRisingServer_Data/StreamingAssets/Settings/ServerGameSettings.json
               subPath: ServerGameSettings.json
       initContainers:
         - name: mod-home-owner

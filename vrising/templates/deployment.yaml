@@ -62,8 +62,15 @@ spec:
               memory: "4Gi"
               cpu: "4"
           volumeMounts:
-          - name: home-volume
-            mountPath: /home/ips-hosting
+            - name: home-volume
+              mountPath: /home/ips-hosting
+      initContainers:
+        - name: mod-home-owner
+          image: alpine:3
+          command: ["/bin/sh", "-c", "chown -R 1000:1000 /home/ips-hosting"]
+          volumeMounts:
+            - name: home-volume
+              mountPath: /home/ips-hosting
       volumes:
         - name: home-volume
           hostPath:

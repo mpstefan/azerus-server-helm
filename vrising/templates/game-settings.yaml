@@ -5,7 +5,7 @@ metadata:
   namespace: game-servers
 data:
   ServerGameSettings.json: |
-    {
+    '{
       "GameModeType": "PvE",
       "CastleDamageMode": "Always",
       "SiegeWeaponHealth": "Normal",
@@ -214,4 +214,4 @@ data:
           "EndMinute": 0
         }
       }
-    }
+    }'

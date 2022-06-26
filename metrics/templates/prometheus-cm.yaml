@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  creationTimestamp: null
+  name: prometheus
+  namespace: metrics
+data:
+  prometheus.yml: |
+    global:
+      scrape_interval: 10s
+    scrape_configs:
+      - job_name: 'prometheus'
+        scheme: http
+        metrics_path: '/metrics'
+        static_configs:
+          - targets: ['localhost:9090']
+            labels:
+              pod: $(POD_NAME)
+      - job_name: 'cluster-metrics'
+        metrics_path: '/metrics'
+        honor_labels: true
+        static_configs:
+          - targets: ['kube-state-metrics.metrics.svc.cluster.local:8080']

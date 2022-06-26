@@ -15,9 +15,6 @@ spec:
       labels:
         app: vrising
     spec:
-      securityContext:
-          runAsUser: 1000
-          fsGroup: 1000
       containers:
         - name: vrising
           image: "mpstefan/vrising:latest"

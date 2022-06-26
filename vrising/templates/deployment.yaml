@@ -56,6 +56,9 @@ spec:
               containerPort: 9877
               protocol: UDP
           resources:
+            requests:
+              memory: "1Gi"
+              cpu: "1"
             limits:
               memory: "4Gi"
               cpu: "4"
@@ -65,5 +68,5 @@ spec:
       volumes:
         - name: home-volume
           hostPath:
-            path: /mnt/raid
-            type: Directory
+            path: /mnt/raid/vrising
+            type: DirectoryOrCreate

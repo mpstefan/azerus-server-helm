@@ -15,7 +15,7 @@ data:
         static_configs:
           - targets: ['localhost:9090']
             labels:
-              pod: $(POD_NAME)
+              pod: prometheus
       - job_name: 'cluster-metrics'
         metrics_path: '/metrics'
         honor_labels: true

@@ -18,8 +18,7 @@ spec:
           image: "prom/prometheus:v2.36.2"
           imagePullPolicy: Always
           ports:
-            - name: port
-              containerPort: 9090
+            - containerPort: 9090
           volumeMounts:
             - name: prometheus-config
               mountPath: /etc/prometheus

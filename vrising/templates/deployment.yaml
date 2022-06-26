@@ -67,7 +67,7 @@ spec:
       initContainers:
         - name: mod-home-owner
           image: alpine:3
-          command: ["/bin/sh", "-c", "chown -R 1000:1000 /home/ips-hosting"]
+          command: ["/bin/sh", "-c", "chown 1000:1000 /home/ips-hosting"]
           volumeMounts:
             - name: home-volume
               mountPath: /home/ips-hosting

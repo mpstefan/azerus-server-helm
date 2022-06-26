@@ -15,6 +15,10 @@ spec:
       labels:
         app: vrising
     spec:
+      securityContext:
+          runAsUser: 1000
+          runAsGroup: 1000
+          fsGroup: 1000
       containers:
         - name: vrising
           image: "mpstefan/vrising:latest"
@@ -55,3 +59,11 @@ spec:
             limits:
               memory: "4Gi"
               cpu: "4"
+          volumeMounts:
+          - name: homeVolume
+            mountPath: /home/ips-hosting
+      volumes:
+        - name: homeVolume
+          hostPath:
+            path: /mnt/raid
+            type: Directory

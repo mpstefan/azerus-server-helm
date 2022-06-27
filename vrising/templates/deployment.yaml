@@ -64,10 +64,6 @@ spec:
             - name: game-settings
               mountPath: /home/ips-hosting/VRisingServer_Data/StreamingAssets/Settings/ServerGameSettings.json
               subPath: ServerGameSettings.json
-        - name: node-exporter
-          image: "prom/node-exporter:v1.3.1"
-          ports:
-            - containerPort: 9100
       initContainers:
         - name: mod-home-owner
           image: alpine:3

@@ -32,7 +32,7 @@ spec:
       initContainers:
         - name: mod-dir-owner
           image: alpine:3
-          command: ["/bin/sh", "-c", "chown 1000:1000 /var/lib/grafana"]
+          command: ["/bin/sh", "-c", "chown 472:0 /var/lib/grafana"]
           volumeMounts:
             - name: grafana-volume
               mountPath: /var/lib/grafana

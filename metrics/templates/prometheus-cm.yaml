@@ -23,3 +23,10 @@ data:
           - targets: ['vrising-metrics.game-servers.svc.cluster.local:9100']
             labels:
               pod: vrising
+      - job_name: 'grafana'
+        metrics_path: '/metrics'
+        honor_labels: true
+        static_configs:
+          - targets: ['grafana.grafana.svc.cluster.local:3000']
+            labels:
+              pod: grafana

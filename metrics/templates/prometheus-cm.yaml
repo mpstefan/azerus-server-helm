@@ -16,16 +16,21 @@ data:
           - targets: ['localhost:9090']
             labels:
               pod: prometheus
+
       - job_name: 'node-metrics'
         metrics_path: '/metrics'
         scheme: http
         static_configs:
           - targets: ['localhost:9100']
-      - job_name: 'kube-state-metrics'
-        metrics_path: '/metrics'
-        scheme: http
-        static_configs:
-          - targets: ['kube-state-metrics.metrics.svc.cluster.local:8080']
+
+      - job_name: 'kubernetes-pods'
+        kubernetes_sd_configs:
+        - role: pod
+          api_server: https://kubernetes.default.svc:443
+          tls_config:
+            ca_file: "/var/run/secrets/kubernetes.io/serviceaccount/ca.crt"
+          bearer_token_file: "/var/run/secrets/kubernetes.io/serviceaccount/token"
+
       - job_name: 'grafana'
         metrics_path: '/metrics'
         scheme: http

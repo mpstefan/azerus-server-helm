@@ -16,8 +16,10 @@ data:
           - targets: ['localhost:9090']
             labels:
               pod: prometheus
-      - job_name: 'cluster-metrics'
+      - job_name: 'vrising-metrics'
         metrics_path: '/metrics'
         honor_labels: true
         static_configs:
-          - targets: ['kube-state-metrics.metrics.svc.cluster.local:8080']
+          - targets: ['vrising-metrics.game-servers.svc.cluster.local:9100']
+            labels:
+              pod: vrising

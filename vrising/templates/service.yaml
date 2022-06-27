@@ -17,4 +17,18 @@ spec:
     nodePort: 30001
     port: 9877
     targetPort: query
+
   type: NodePort
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: vrising-metrics
+  namespace: game-servers
+spec:
+  selector:
+    app: vrising
+  ports:
+  - name: vrising-metrics
+    port: 9100
+    targetPort: 9100

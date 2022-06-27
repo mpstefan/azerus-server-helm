@@ -23,13 +23,18 @@ data:
         static_configs:
           - targets: ['localhost:9100']
 
-      - job_name: 'kubernetes-pods'
+      - job_name: 'kubernetes-endpoints'
         kubernetes_sd_configs:
-        - role: pod
-          api_server: https://kubernetes.default.svc:443
-          tls_config:
-            ca_file: "/var/run/secrets/kubernetes.io/serviceaccount/ca.crt"
-          bearer_token_file: "/var/run/secrets/kubernetes.io/serviceaccount/token"
+        - role: endpoints
+        relabel_configs:
+        - action: labelmap
+          regex: __meta_kubernetes_service_label_(.+)
+        - source_labels: [__meta_kubernetes_namespace]
+          action: replace
+          target_label: kubernetes_namespace
+        - source_labels: [__meta_kubernetes_service_name]
+          action: replace
+          target_label: kubernetes_name
 
       - job_name: 'grafana'
         metrics_path: '/metrics'

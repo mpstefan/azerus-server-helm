@@ -49,7 +49,7 @@ data:
       "CastleUnderAttackTimer": 60.0,
       "AnnounceSiegeWeaponSpawn": true,
       "ShowSiegeWeaponMapIcon": true,
-      "BuildCostModifier": 0.0,
+      "BuildCostModifier": 0.1,
       "RecipeCostModifier": 1.0,
       "CraftRateModifier": 1.0,
       "ResearchCostModifier": 1.0,

@@ -38,8 +38,6 @@ spec:
               value: "true"
             - name: VR_LIST_ON_MASTER_SERVER
               value: "true"
-            - name: VR_PASSWORD
-              value: "ThisSaveWillBeDeleted"
             - name: VR_SAVE_NAME
               value: "EbonGarden"
             - name: VR_SAVE_COUNT

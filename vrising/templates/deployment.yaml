@@ -21,9 +21,9 @@ spec:
           imagePullPolicy: Always
           env:
             - name: VR_NAME
-              value: "Ebon Garden"
+              value: "[US East][60hz] Ebon Garden | Casual PvP | No Wipes | 60 FPS | 6/27 5:30PM EST Launch"
             - name: VR_DESCRIPTION
-              value: "Ebon Garden is a PvE server open to all levels of play."
+              value: "Ebon Garden will never be wiped and is actively monitored for performance issues. Join our Discord here: https://discord.gg/nkKd9sDX8s"
             - name: VR_GAME_PORT
               value: "9876"
             - name: VR_QUERY_PORT
@@ -37,7 +37,9 @@ spec:
             - name: VR_SECURE
               value: "true"
             - name: VR_LIST_ON_MASTER_SERVER
-              value: "false"
+              value: "true"
+            - name: VR_PASSWORD
+              value: "ThisSaveWillBeDeleted"
             - name: VR_SAVE_NAME
               value: "EbonGarden"
             - name: VR_SAVE_COUNT

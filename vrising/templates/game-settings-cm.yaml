@@ -9,7 +9,7 @@ data:
       "GameModeType": "PvP",
       "CastleDamageMode": "TimeRestricted",
       "SiegeWeaponHealth": "Normal",
-      "PlayerDamageMode": "TimeRestricted",
+      "PlayerDamageMode": "Always",
       "CastleHeartDamageMode": "CanBeDestroyedOnlyWhenDecaying",
       "PvPProtectionMode": "Medium",
       "DeathContainerPermission": "ClanMembers",

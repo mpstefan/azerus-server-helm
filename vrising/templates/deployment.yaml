@@ -21,7 +21,7 @@ spec:
           imagePullPolicy: Always
           env:
             - name: VR_NAME
-              value: "[US East][60hz] Ebon Garden | Casual PvP | No Wipes | 60 FPS | 6/27 5:30PM EST Launch"
+              value: "[US East][60fps] Ebon Garden | Casual PvP | 6/27 Launch"
             - name: VR_DESCRIPTION
               value: "Ebon Garden will never be wiped and is actively monitored for performance issues. Join our Discord here: https://discord.gg/nkKd9sDX8s"
             - name: VR_GAME_PORT

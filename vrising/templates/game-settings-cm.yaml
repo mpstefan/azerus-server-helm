@@ -36,7 +36,7 @@ data:
       "JournalVBloodSourceUnitMaxDistance": 25.0,
       "PvPVampireRespawnModifier": 1.0,
       "CastleMinimumDistanceInFloors": 0,
-      "ClanSize": 4,
+      "ClanSize": 3,
       "BloodDrainModifier": 1.0,
       "DurabilityDrainModifier": 1.0,
       "GarlicAreaStrengthModifier": 1.0,

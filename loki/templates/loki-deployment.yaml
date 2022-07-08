@@ -35,7 +35,7 @@ spec:
             - name: loki-volume
               mountPath: /data/loki/chunks
       volumes:
-        - name: grafana-volume
+        - name: loki-volume
           hostPath:
             path: /mnt/raid/loki
             type: DirectoryOrCreate

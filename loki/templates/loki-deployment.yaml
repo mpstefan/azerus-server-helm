@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: loki
+  namespace: logs
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: loki
+  template:
+    metadata:
+      labels:
+        app: loki
+    spec:
+      containers:
+        - name: loki
+          image: "grafana/loki:latest"
+          imagePullPolicy: Always
+          ports:
+            - name: http-metrics
+              containerPort: 3100
+              protocol: TCP
+            - name: grpc
+              containerPort: 9095
+              protocol: TCP
+          volumeMounts:
+            - name: loki-volume
+              mountPath: /data/loki/chunks
+      initContainers:
+        - name: mod-dir-owner
+          image: alpine:3
+          command: ["/bin/sh", "-c", "chown 472:0 /data/loki/chunks"]
+          volumeMounts:
+            - name: loki-volume
+              mountPath: /data/loki/chunks
+      volumes:
+        - name: grafana-volume
+          hostPath:
+            path: /mnt/raid/loki
+            type: DirectoryOrCreate

@@ -196,9 +196,9 @@ data:
           "EndMinute": 0
         },
         "VSPlayerWeekendTime": {
-          "StartHour": 23,
+          "StartHour": 19,
           "StartMinute": 0,
-          "EndHour": 2,
+          "EndHour": 22,
           "EndMinute": 0
         },
         "VSCastleWeekdayTime": {
@@ -208,9 +208,9 @@ data:
           "EndMinute": 0
         },
         "VSCastleWeekendTime": {
-          "StartHour": 23,
+          "StartHour": 19,
           "StartMinute": 0,
-          "EndHour": 2,
+          "EndHour": 22,
           "EndMinute": 0
         }
       }

@@ -92,7 +92,7 @@ data:
       },
       "UnitStatModifiers_VBlood": {
         "MaxHealthModifier": 1.2,
-        "PowerModifier": 1.2
+        "PowerModifier": 1.3
       },
       "EquipmentStatModifiers_Global": {
         "MaxEnergyModifier": 1.0,

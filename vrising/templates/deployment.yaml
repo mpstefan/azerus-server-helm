@@ -59,23 +59,23 @@ spec:
               memory: "6Gi"
               cpu: "4"
           volumeMounts:
-            - name: home-volume
-              mountPath: /home/ips-hosting
+            - name: data-volume
+              mountPath: /home/vrising/data
             - name: game-settings
-              mountPath: /home/ips-hosting/VRisingServer_Data/StreamingAssets/Settings/ServerGameSettings.json
+              mountPath: /home/vrising/VRisingServer_Data/StreamingAssets/Settings/ServerGameSettings.json
               subPath: ServerGameSettings.json
       initContainers:
         - name: mod-home-owner
           image: alpine:3
-          command: ["/bin/sh", "-c", "chown 1000:1000 /home/ips-hosting"]
+          command: ["/bin/sh", "-c", "chown 1000:1000 /home/vrising/data"]
           volumeMounts:
-            - name: home-volume
-              mountPath: /home/ips-hosting
+            - name: data-volume
+              mountPath: /home/vrising/data
             - name: game-settings
-              mountPath: /home/ips-hosting/VRisingServer_Data/StreamingAssets/Settings/ServerGameSettings.json
+              mountPath: /home/vrising/VRisingServer_Data/StreamingAssets/Settings/ServerGameSettings.json
               subPath: ServerGameSettings.json
       volumes:
-        - name: home-volume
+        - name: data-volume
           hostPath:
             path: /mnt/raid/vrising
             type: DirectoryOrCreate

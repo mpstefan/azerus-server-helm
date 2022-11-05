@@ -1,0 +1,59 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: minecraft
+  namespace: game-servers
+spec:
+  replicas: 1
+  strategy:
+    type: "Recreate"
+  selector:
+    matchLabels:
+      app: minecraft
+  template:
+    metadata:
+      labels:
+        app: minecraft
+    spec:
+      containers:
+        - name: minecraft
+          image: "mpstefan/minecraft:latest"
+          imagePullPolicy: Always
+          ports:
+            - name: game
+              containerPort: 25565
+              protocol: TCP
+            - name: dynmap
+              containerPort: 8123
+              protocol: TCP
+          resources:
+            requests:
+              memory: "1Gi"
+              cpu: "1"
+            limits:
+              memory: "13Gi"
+              cpu: "4"
+          volumeMounts:
+            - name: plugins-volume
+              mountPath: /home/minecraft/plugins
+            - name: server-properties
+              mountPath: /home/minecraft/server.properties
+              subPath: server.properties
+      initContainers:
+        - name: mod-home-owner
+          image: alpine:3
+          command: ["/bin/sh", "-c", "chown 1001:1000 /home/minecraft"]
+          volumeMounts:
+            - name: plugins-volume
+              mountPath: /home/minecraft/plugins
+            - name: server-properties
+              mountPath: /home/minecraft/server.properties
+              subPath: server.properties
+      volumes:
+        - name: plugins-volume
+          hostPath:
+            path: /mnt/raid/minecraft/plugins
+            type: DirectoryOrCreate
+        - name: server-properties
+          configMap:
+            name: minecraft-server-properties

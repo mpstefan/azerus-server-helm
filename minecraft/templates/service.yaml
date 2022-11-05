@@ -9,12 +9,12 @@ spec:
   ports:
   - name: minecraft-game
     protocol: TCP
-    nodePort: 30005
+    nodePort: 30006
     port: 25565
     targetPort: game
   - name: minecraft-dynmap
     protocol: TCP
-    nodePort: 30006
+    nodePort: 30007
     port: 8123
     targetPort: dynmap
 

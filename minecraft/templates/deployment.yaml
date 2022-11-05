@@ -39,6 +39,9 @@ spec:
             - name: server-properties
               mountPath: /home/minecraft/server.properties
               subPath: server.properties
+            - name: whitelist
+              mountPath: /home/minecraft/whitelist.json
+              subPath: whitelist.json
       initContainers:
         - name: mod-home-owner
           image: alpine:3
@@ -49,6 +52,9 @@ spec:
             - name: server-properties
               mountPath: /home/minecraft/server.properties
               subPath: server.properties
+            - name: whitelist
+              mountPath: /home/minecraft/whitelist.json
+              subPath: whitelist.json
       volumes:
         - name: plugins-volume
           hostPath:
@@ -57,3 +63,7 @@ spec:
         - name: server-properties
           configMap:
             name: minecraft-server-properties
+        - name: whitelist
+          hostPath:
+            path: /mnt/raid/minecraft/whitelist.json
+            type: FileOrCreate

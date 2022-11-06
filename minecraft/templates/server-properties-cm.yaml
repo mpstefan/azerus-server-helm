@@ -13,7 +13,7 @@ data:
     enable-query=false
     generator-settings=
     level-name=Telvanni
-    motd=John Smith is king, but Mythic makes better monsters
+    motd=Now on PaperMC and Kubernetes!
     query.port=25565
     hellworld=false
     pvp=true
@@ -39,7 +39,7 @@ data:
     op-permission-level=4
     prevent-proxy-connections=false
     hide-online-players=false
-    resource-pack=https\://www.dropbox.com/s/ykfd77fcixil8j8/Azerus%20Server.zip?dl\=1
+    resource-pack=https\://www.dropbox.com/s/fid312ko5ux043u/Azerus%20Server%201.19.zip?dl\=1
     entity-broadcast-range-percentage=100
     simulation-distance=10
     player-idle-timeout=0

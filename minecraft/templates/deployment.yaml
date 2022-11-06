@@ -39,6 +39,9 @@ spec:
             - name: server-properties
               mountPath: /home/minecraft/server.properties
               subPath: server.properties
+            - name: spigot-settings
+              mountPath: /home/minecraft/spigot.yml
+              subPath: spigot.yml
             - name: whitelist
               mountPath: /home/minecraft/whitelist.json
             - name: ops
@@ -57,6 +60,9 @@ spec:
             - name: server-properties
               mountPath: /home/minecraft/server.properties
               subPath: server.properties
+            - name: spigot-settings
+              mountPath: /home/minecraft/spigot.yml
+              subPath: spigot.yml
             - name: whitelist
               mountPath: /home/minecraft/whitelist.json
             - name: ops
@@ -65,6 +71,7 @@ spec:
               mountPath: /home/minecraft/banned-ips.json
             - name: banned-players
               mountPath: /home/minecraft/banned-players.json
+            
       volumes:
         - name: plugins-volume
           hostPath:
@@ -73,6 +80,9 @@ spec:
         - name: server-properties
           configMap:
             name: minecraft-server-properties
+        - name: spigot-settings
+          configMap:
+            name: minecraft-spigot-settings
         - name: whitelist
           hostPath:
             path: /mnt/raid/minecraft/whitelist.json

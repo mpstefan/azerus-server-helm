@@ -41,6 +41,12 @@ spec:
               subPath: server.properties
             - name: whitelist
               mountPath: /home/minecraft/whitelist.json
+            - name: ops
+              mountPath: /home/minecraft/ops.json
+            - name: banned-ips
+              mountPath: /home/minecraft/banned-ips.json
+            - name: banned-players
+              mountPath: /home/minecraft/banned-players.json
       initContainers:
         - name: mod-home-owner
           image: alpine:3
@@ -53,6 +59,12 @@ spec:
               subPath: server.properties
             - name: whitelist
               mountPath: /home/minecraft/whitelist.json
+            - name: ops
+              mountPath: /home/minecraft/ops.json
+            - name: banned-ips
+              mountPath: /home/minecraft/banned-ips.json
+            - name: banned-players
+              mountPath: /home/minecraft/banned-players.json
       volumes:
         - name: plugins-volume
           hostPath:
@@ -64,4 +76,16 @@ spec:
         - name: whitelist
           hostPath:
             path: /mnt/raid/minecraft/whitelist.json
+            type: FileOrCreate
+        - name: ops
+          hostPath:
+            path: /mnt/raid/minecraft/ops.json
+            type: FileOrCreate
+        - name: banned-ips
+          hostPath:
+            path: /mnt/raid/minecraft/banned-ips.json
+            type: FileOrCreate
+        - name: banned-players
+          hostPath:
+            path: /mnt/raid/minecraft/banned-players.json
             type: FileOrCreate

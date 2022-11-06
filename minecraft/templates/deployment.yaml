@@ -59,7 +59,13 @@ spec:
       initContainers:
         - name: mod-home-owner
           image: alpine:3
-          command: ["/bin/sh", "-c", "chown -R 1001:1000 /home/minecraft"]
+          command: ["/bin/sh"]
+          args:
+            - -c
+            - >-
+                chown 1001:1000 /home/minecraft &&
+                chown -R 1001:1000 /home/minecraft/plugins &&
+                chown 1001:1000 /home/minecraft/config
           volumeMounts:
             - name: plugins-volume
               mountPath: /home/minecraft/plugins

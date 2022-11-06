@@ -36,6 +36,12 @@ spec:
           volumeMounts:
             - name: plugins-volume
               mountPath: /home/minecraft/plugins
+            - name: world
+              mountPath: /home/minecraft/Telvanni
+            - name: world-nether
+              mountPath: /home/minecraft/Telvanni_nether
+            - name: world-the-end
+              mountPath: /home/minecraft/Telvanni_the_end
             - name: server-properties
               mountPath: /home/minecraft/server.properties
               subPath: server.properties
@@ -65,10 +71,19 @@ spec:
             - >-
                 chown 1001:1000 /home/minecraft &&
                 chown -R 1001:1000 /home/minecraft/plugins &&
-                chown 1001:1000 /home/minecraft/config
+                chown 1001:1000 /home/minecraft/config &&
+                chown -R 1001:1000 /home/minecraft/Telvanni &&
+                chown -R 1001:1000 /home/minecraft/Telvanni_nether &&
+                chown -R 1001:1000 /home/minecraft/Telvanni_the_end
           volumeMounts:
             - name: plugins-volume
               mountPath: /home/minecraft/plugins
+            - name: world
+              mountPath: /home/minecraft/Telvanni
+            - name: world-nether
+              mountPath: /home/minecraft/Telvanni_nether
+            - name: world-the-end
+              mountPath: /home/minecraft/Telvanni_the_end
             - name: server-properties
               mountPath: /home/minecraft/server.properties
               subPath: server.properties
@@ -95,6 +110,18 @@ spec:
           hostPath:
             path: /mnt/raid/minecraft/plugins
             type: DirectoryOrCreate
+        - name: world
+          hostPath:
+            path: /mnt/raid/minecraft/Telvanni
+            type: Directory
+        - name: world-nether
+          hostPath:
+            path: /mnt/raid/minecraft/Telvanni_nether
+            type: Directory
+        - name: world-the-end
+          hostPath:
+            path: /mnt/raid/minecraft/Telvanni_the_end
+            type: Directory
         - name: server-properties
           configMap:
             name: minecraft-server-properties

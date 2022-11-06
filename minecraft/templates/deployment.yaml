@@ -42,6 +42,12 @@ spec:
             - name: spigot-settings
               mountPath: /home/minecraft/spigot.yml
               subPath: spigot.yml
+            - name: paper-global
+              mountPath: /home/minecraft/config/paper-global.yml
+              subPath: paper-global.yml
+            - name: paper-world-defaults
+              mountPath: /home/minecraft/config/paper-world-defaults.yml
+              subPath: paper-world-defaults.yml
             - name: whitelist
               mountPath: /home/minecraft/whitelist.json
             - name: ops
@@ -63,6 +69,12 @@ spec:
             - name: spigot-settings
               mountPath: /home/minecraft/spigot.yml
               subPath: spigot.yml
+            - name: paper-global
+              mountPath: /home/minecraft/config/paper-global.yml
+              subPath: paper-global.yml
+            - name: paper-world-defaults
+              mountPath: /home/minecraft/config/paper-world-defaults.yml
+              subPath: paper-world-defaults.yml
             - name: whitelist
               mountPath: /home/minecraft/whitelist.json
             - name: ops
@@ -83,6 +95,12 @@ spec:
         - name: spigot-settings
           configMap:
             name: minecraft-spigot-settings
+        - name: paper-global
+          configMap:
+            name: minecraft-paper-global
+        - name: paper-world-defaults
+          configMap:
+            name: minecraft-paper-world-defaults
         - name: whitelist
           hostPath:
             path: /mnt/raid/minecraft/whitelist.json

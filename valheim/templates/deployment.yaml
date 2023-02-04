@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: valheim
+  namespace: game-servers
+spec:
+  replicas: 1
+  strategy:
+    type: "Recreate"
+  selector:
+    matchLabels:
+      app: valheim
+  template:
+    metadata:
+      labels:
+        app: valheim
+    spec:
+      containers:
+        - name: valheim
+          image: "mpstefan/valheim:latest"
+          imagePullPolicy: Always
+          ports:
+            - name: game1
+              containerPort: 2456
+              protocol: UDP
+            - name: game2
+              containerPort: 2457
+              protocol: UDP
+          resources:
+            requests:
+              memory: "1Gi"
+              cpu: "1"
+            limits:
+              memory: "6Gi"
+              cpu: "4"
+          volumeMounts:
+            - name: data-volume
+              mountPath: /home/valheim/.config/unity3d/IronGate/Valheim
+      initContainers:
+        - name: mod-home-owner
+          image: alpine:3
+          command: ["/bin/sh", "-c", "chown 1000:1000 /home/valheim/.config/unity3d/IronGate/Valheim"]
+          volumeMounts:
+            - name: data-volume
+              mountPath: /home/valheim/.config/unity3d/IronGate/Valheim
+      volumes:
+        - name: data-volume
+          hostPath:
+            path: /mnt/raid/valheim
+            type: DirectoryOrCreate

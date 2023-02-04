@@ -23,9 +23,15 @@ spec:
             - name: game1
               containerPort: 2456
               protocol: UDP
+            - name: game1tcp
+              containerPort: 2456
+              protocol: TCP
             - name: game2
               containerPort: 2457
               protocol: UDP
+            - name: game2tcp
+              containerPort: 2457
+              protocol: TCP
           resources:
             requests:
               memory: "1Gi"

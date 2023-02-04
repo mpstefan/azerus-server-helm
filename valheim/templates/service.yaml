@@ -12,12 +12,21 @@ spec:
     nodePort: 30008
     port: 2456
     targetPort: game1
+  - name: valheim-game1tcp
+    protocol: TCP
+    nodePort: 30008
+    port: 2456
+    targetPort: game1tcp
   - name: valheim-game2
     protocol: UDP
     nodePort: 30009
     port: 2457
     targetPort: game2
-
+  - name: valheim-game2tcp
+    protocol: TCP
+    nodePort: 30009
+    port: 2457
+    targetPort: game2tcp
   type: NodePort
 ---
 apiVersion: v1

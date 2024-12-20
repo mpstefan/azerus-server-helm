@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: minecraft
-          image: "mpstefan/minecraft:latest"
+          image: "mpstefan0/minecraft:latest"
           imagePullPolicy: Always
           ports:
             - name: game

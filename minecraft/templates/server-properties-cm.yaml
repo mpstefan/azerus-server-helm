@@ -25,7 +25,7 @@ data:
     max-players=20
     use-native-transport=true
     enable-status=true
-    online-mode=true
+    online-mode=false
     allow-flight=true
     broadcast-rcon-to-ops=true
     view-distance=8
